@@ -1,6 +1,20 @@
 {
   "extractors": [
     {
+      "title": "Firewall Destination IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_ip",
+      "extractor_config": {
+        "regex_value": "dst_ip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
       "title": "Firewall Log Type",
       "extractor_type": "regex",
       "converters": [],
@@ -10,20 +24,6 @@
       "target_field": "fw_log_type",
       "extractor_config": {
         "regex_value": "log_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Log Subtype",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_log_subtype",
-      "extractor_config": {
-        "regex_value": "log_subtype=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
@@ -43,323 +43,29 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Date",
+      "title": "Firewall Log Subtype",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_date",
+      "target_field": "fw_log_subtype",
       "extractor_config": {
-        "regex_value": "date=\"([^\"]*)\""
+        "regex_value": "log_subtype=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Time",
+      "title": "Firewall Severity",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_time",
+      "target_field": "fw_severity",
       "extractor_config": {
-        "regex_value": "time=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Action",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_action",
-      "extractor_config": {
-        "regex_value": "action=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Application Risk",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_app_risk",
-      "extractor_config": {
-        "regex_value": "app_risk=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Host Login User",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_host_login_user",
-      "extractor_config": {
-        "regex_value": "host_login_user=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Sender",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_sender",
-      "extractor_config": {
-        "regex_value": "sender=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Email Size",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_email_size",
-      "extractor_config": {
-        "regex_value": "email_size=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Message ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_message_id",
-      "extractor_config": {
-        "regex_value": "message_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Execution Path",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_execution_path",
-      "extractor_config": {
-        "regex_value": "execution_path=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Application Technology",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_app_technology",
-      "extractor_config": {
-        "regex_value": "app_technology=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Destination Country",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_country",
-      "extractor_config": {
-        "regex_value": "dst_country=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "User Group",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_user_group",
-      "extractor_config": {
-        "regex_value": "user_group=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Policy Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_policy_type",
-      "extractor_config": {
-        "regex_value": "policy_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Translated Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_trans_port",
-      "extractor_config": {
-        "regex_value": "dst_trans_port=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Heartbeat Status",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_hb_status",
-      "extractor_config": {
-        "regex_value": "hb_status=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Connection ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_con_id",
-      "extractor_config": {
-        "regex_value": "con_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Policy Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_policy_name",
-      "extractor_config": {
-        "regex_value": "policy_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source IP",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_ip",
-      "extractor_config": {
-        "regex_value": "src_ip=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Application Resolved By",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_appresolvedby",
-      "extractor_config": {
-        "regex_value": "appresolvedby=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Status",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_status",
-      "extractor_config": {
-        "regex_value": "status=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Application Category",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_app_category",
-      "extractor_config": {
-        "regex_value": "app_category=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Bytes Received",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_bytes_received",
-      "extractor_config": {
-        "regex_value": "bytes_received=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_port",
-      "extractor_config": {
-        "regex_value": "dst_port=\"([^\"]*)\""
+        "regex_value": "severity=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
@@ -371,7 +77,7 @@
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_fw_rule_id",
+      "target_field": "fw_rule_id",
       "extractor_config": {
         "regex_value": "fw_rule_id=\"([^\"]*)\""
       },
@@ -379,63 +85,63 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall User",
+      "title": "Firewall User Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_user",
+      "target_field": "fw_user_name",
       "extractor_config": {
-        "regex_value": "user=\"([^\"]*)\""
+        "regex_value": "user_name=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Event ID",
+      "title": "Firewall Web Policy",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_event_id",
+      "target_field": "fw_web_policy",
       "extractor_config": {
-        "regex_value": "event_id=\"([^\"]*)\""
+        "regex_value": "web_policy=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Source Port",
+      "title": "Firewall ID",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_src_port",
+      "target_field": "fw_id",
       "extractor_config": {
-        "regex_value": "src_port=\"([^\"]*)\""
+        "regex_value": "_id=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Recipient",
+      "title": "Firewall Malware",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_recipient",
+      "target_field": "fw_malware",
       "extractor_config": {
-        "regex_value": "recipient=\"([^\"]*)\""
+        "regex_value": "malware=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "URL",
+      "title": "Firewall URL",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
@@ -444,104 +150,6 @@
       "target_field": "fw_url",
       "extractor_config": {
         "regex_value": "url=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Packets Sent",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_packets_sent",
-      "extractor_config": {
-        "regex_value": "packets_sent=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Source Country",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_country",
-      "extractor_config": {
-        "regex_value": "src_country=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source MAC",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_mac",
-      "extractor_config": {
-        "regex_value": "src_mac=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination IP",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_ip",
-      "extractor_config": {
-        "regex_value": "dst_ip=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Protocol",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_protocol",
-      "extractor_config": {
-        "regex_value": "protocol=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Quarantine Reason",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_quarantine_reason",
-      "extractor_config": {
-        "regex_value": "quarantine_reason=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Host Process User",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_host_process_user",
-      "extractor_config": {
-        "regex_value": "host_process_user=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
@@ -561,981 +169,29 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Connection Duration",
+      "title": "Firewall Source IP",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_con_duration",
+      "target_field": "fw_src_ip",
       "extractor_config": {
-        "regex_value": "con_duration=\"([^\"]*)\""
+        "regex_value": "src_ip=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Destination Zone",
+      "title": "Firewall Source Country",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_dst_zone",
+      "target_field": "fw_src_country",
       "extractor_config": {
-        "regex_value": "dst_zone=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source Zone",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_zone",
-      "extractor_config": {
-        "regex_value": "src_zone=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source Zone Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_zone_type",
-      "extractor_config": {
-        "regex_value": "src_zone_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Application Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_app_name",
-      "extractor_config": {
-        "regex_value": "app_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Zone Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_zone_type",
-      "extractor_config": {
-        "regex_value": "dst_zone_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Virtual Connection ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_virt_con_id",
-      "extractor_config": {
-        "regex_value": "virt_con_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Connection Direction",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_con_direction",
-      "extractor_config": {
-        "regex_value": "con_direction=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Victim",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_victim",
-      "extractor_config": {
-        "regex_value": "victim=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Inbound Interface",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_in_interface",
-      "extractor_config": {
-        "regex_value": "in_interface=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Host",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_host",
-      "extractor_config": {
-        "regex_value": "host=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Outbound Interface",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_out_interface",
-      "extractor_config": {
-        "regex_value": "out_interface=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Threat",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_threat",
-      "extractor_config": {
-        "regex_value": "threat=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall User Agent",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_user_agent",
-      "extractor_config": {
-        "regex_value": "user_agent=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Subject",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_subject",
-      "extractor_config": {
-        "regex_value": "subject=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Bytes Sent",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_bytes_sent",
-      "extractor_config": {
-        "regex_value": "bytes_sent=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Category",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_category",
-      "extractor_config": {
-        "regex_value": "category=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Signature ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_sig_id",
-      "extractor_config": {
-        "regex_value": "sig_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Endpoint ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_endpoint_id",
-      "extractor_config": {
-        "regex_value": "endpoint_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall IPS Policy",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_ips_policy",
-      "extractor_config": {
-        "regex_value": "ips_policy=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall IPS Policy ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_ips_policy_id",
-      "extractor_config": {
-        "regex_value": "ips_policy_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Web Policy ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_web_policy_id",
-      "extractor_config": {
-        "regex_value": "web_policy_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source Translated Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_trans_port",
-      "extractor_config": {
-        "regex_value": "src_trans_port=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_type",
-      "extractor_config": {
-        "regex_value": "type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Packets Received",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_packets_received",
-      "extractor_config": {
-        "regex_value": "packets_received=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Rule Priority",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_rule_priority",
-      "extractor_config": {
-        "regex_value": "rule_priority=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Translated IP",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_trans_ip",
-      "extractor_config": {
-        "regex_value": "dst_trans_ip=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Applicationfilter Policy ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_appfilter_policy_id",
-      "extractor_config": {
-        "regex_value": "appfilter_policy_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall ICMP Code",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_icmp_code",
-      "extractor_config": {
-        "regex_value": "icmp_code=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall ICMP Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_icmp_type",
-      "extractor_config": {
-        "regex_value": "icmp_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Classification",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_classification",
-      "extractor_config": {
-        "regex_value": "classification=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall OS",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_OS",
-      "extractor_config": {
-        "regex_value": "OS=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Status Code",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_status_code",
-      "extractor_config": {
-        "regex_value": "status_code=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall File Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_file_name",
-      "extractor_config": {
-        "regex_value": "file_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall File Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_file_type",
-      "extractor_config": {
-        "regex_value": "file_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Virus",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_virus",
-      "extractor_config": {
-        "regex_value": "virus=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Direction",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_direction",
-      "extractor_config": {
-        "regex_value": "direction=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Endpoint IP",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_endpoint_ip",
-      "extractor_config": {
-        "regex_value": "endpoint_ip=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall File Size",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_file_size",
-      "extractor_config": {
-        "regex_value": "file_size=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Context Prefix",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_context_prefix",
-      "extractor_config": {
-        "regex_value": "context_prefix=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Content Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_content_type",
-      "extractor_config": {
-        "regex_value": "content_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Content Filter Key",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_content_filter_key",
-      "extractor_config": {
-        "regex_value": "content_filter_key=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Activity Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_activity_name",
-      "extractor_config": {
-        "regex_value": "activity_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Context Suffix",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_context_suffix",
-      "extractor_config": {
-        "regex_value": "context_suffix=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Download File Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_download_file_name",
-      "extractor_config": {
-        "regex_value": "download_file_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Context Match",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_context_match",
-      "extractor_config": {
-        "regex_value": "context_match=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Exception",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_exception",
-      "extractor_config": {
-        "regex_value": "exception=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Transaction ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_transaction_id",
-      "extractor_config": {
-        "regex_value": "transaction_id=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Website",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_website",
-      "extractor_config": {
-        "regex_value": "website=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Cookie",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_cookie",
-      "extractor_config": {
-        "regex_value": "cookie=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall New Version",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_newversion",
-      "extractor_config": {
-        "regex_value": "newversion=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Web Policy",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_web_policy",
-      "extractor_config": {
-        "regex_value": "web_policy=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Extra",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_extra",
-      "extractor_config": {
-        "regex_value": "extra=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Response Time",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_response_time",
-      "extractor_config": {
-        "regex_value": "response_time=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Override Token",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_override_token",
-      "extractor_config": {
-        "regex_value": "override_token=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall SHA1sum",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_sha1sum",
-      "extractor_config": {
-        "regex_value": "sha1sum=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Event Time",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_event_time",
-      "extractor_config": {
-        "regex_value": "event_time=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Response Code",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_response_code",
-      "extractor_config": {
-        "regex_value": "response_code=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Referer",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_referer",
-      "extractor_config": {
-        "regex_value": "referer=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Server",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_server",
-      "extractor_config": {
-        "regex_value": "server=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Download File Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_download_file_type",
-      "extractor_config": {
-        "regex_value": "download_file_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Category Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_category_type",
-      "extractor_config": {
-        "regex_value": "category_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Method",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_method",
-      "extractor_config": {
-        "regex_value": "method=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Site Category",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_site_category",
-      "extractor_config": {
-        "regex_value": "site_category=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Upload File Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_upload_file_type",
-      "extractor_config": {
-        "regex_value": "upload_file_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Query String",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_query_string",
-      "extractor_config": {
-        "regex_value": "query_string=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Reason",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_reason",
-      "extractor_config": {
-        "regex_value": "reason=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Upload File Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_upload_file_name",
-      "extractor_config": {
-        "regex_value": "upload_file_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Old Version",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_oldversion",
-      "extractor_config": {
-        "regex_value": "oldversion=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_name",
-      "extractor_config": {
-        "regex_value": "name=\"([^\"]*)\""
+        "regex_value": "src_country=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
@@ -1555,35 +211,77 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Device Name",
+      "title": "Firewall Destination Country",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_device_name",
+      "target_field": "fw_dst_country",
       "extractor_config": {
-        "regex_value": "device_name=\"([^\"]*)\""
-      },
-      "condition_type": "none",
-      "condition_value": ""
-    },
-    {
-      "title": "Firewall Time",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_time",
-      "extractor_config": {
-        "regex_value": "time=([^\\s]*)"
+        "regex_value": "dst_country=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "HTTP User Agent",
+      "title": "Firewall Source Port",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_port",
+      "extractor_config": {
+        "regex_value": "src_port=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination Port",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_port",
+      "extractor_config": {
+        "regex_value": "dst_port=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Bytes Sent",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_bytes_sent",
+      "extractor_config": {
+        "regex_value": "bytes_sent=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Bytes Received",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_bytes_received",
+      "extractor_config": {
+        "regex_value": "bytes_received=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall HTTP User Agent",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
@@ -1597,119 +295,21 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Sophos XG httpstatus",
+      "title": "HTTP Status",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_httpstatus",
+      "target_field": "fw_http_status",
       "extractor_config": {
-        "regex_value": "httpstatus=([^\\s]*)"
+        "regex_value": "http_status=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Source Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_port",
-      "extractor_config": {
-        "regex_value": "src_port=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Zone",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_zone",
-      "extractor_config": {
-        "regex_value": "dst_zone=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG fw rule section",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_rule_section",
-      "extractor_config": {
-        "regex_value": "fw_rule_section=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_port",
-      "extractor_config": {
-        "regex_value": "src_port=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Out Interface",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_remote_interfaceip",
-      "extractor_config": {
-        "regex_value": "out_interface=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Date",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_date",
-      "extractor_config": {
-        "regex_value": "date=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Bridge Interface Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_bridge_display_name",
-      "extractor_config": {
-        "regex_value": "bridge_display_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Log ID",
+      "title": "Log ID",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
@@ -1723,21 +323,77 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Sophos XG querystring",
+      "title": "Device Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_querystring",
+      "target_field": "fw_device_name",
       "extractor_config": {
-        "regex_value": "querystring=\"([^\"]*)\""
+        "regex_value": "device_name=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Source Zone",
+      "title": "Device Model",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_device_model",
+      "extractor_config": {
+        "regex_value": "device_model=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Device Serial ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_device_serial_id",
+      "extractor_config": {
+        "regex_value": "device_serial_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Protocol",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_protocol",
+      "extractor_config": {
+        "regex_value": "protocol=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Source Zone Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_zone_type",
+      "extractor_config": {
+        "regex_value": "src_zone_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Source Zone",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
@@ -1751,49 +407,455 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Packets Sent",
+      "title": "Destination Zone Type",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_packets_sent",
+      "target_field": "fw_dst_zone_type",
       "extractor_config": {
-        "regex_value": "packets_sent=([^\\s]*)"
+        "regex_value": "dst_zone_type=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Source Translated IP",
+      "title": "Destination Zone",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_src_trans_ip",
+      "target_field": "fw_dst_zone",
       "extractor_config": {
-        "regex_value": "src_trans_ip=\"([^\"]*)\""
+        "regex_value": "dst_zone=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall NAT Rule Name",
+      "title": "User Group",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_nat_rule_name",
+      "target_field": "fw_user_group",
       "extractor_config": {
-        "regex_value": "nat_rule_name=\"([^\"]*)\""
+        "regex_value": "user_group=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Timestamp",
+      "title": "Priority",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_priority",
+      "extractor_config": {
+        "regex_value": "priority=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "IAP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_iap",
+      "extractor_config": {
+        "regex_value": "iap=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Virus",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_virus",
+      "extractor_config": {
+        "regex_value": "virus=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Domain Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_domainname",
+      "extractor_config": {
+        "regex_value": "domainname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw__code",
+      "extractor_config": {
+        "regex_value": "_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Sent Bytes",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sent_bytes",
+      "extractor_config": {
+        "regex_value": "sent_bytes=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Received Bytes",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_recv_bytes",
+      "extractor_config": {
+        "regex_value": "recv_bytes=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "User Agent",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_user_agent",
+      "extractor_config": {
+        "regex_value": "user_agent=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Status Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_status_code",
+      "extractor_config": {
+        "regex_value": "status_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Device",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_device",
+      "extractor_config": {
+        "regex_value": "device=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Device ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_device_id",
+      "extractor_config": {
+        "regex_value": "device_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Log Component",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_log_component",
+      "extractor_config": {
+        "regex_value": "log_component=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "FTP URL",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_FTP_url",
+      "extractor_config": {
+        "regex_value": "FTP_url=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "FTP Direction",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ftp_direction",
+      "extractor_config": {
+        "regex_value": "FTP_direction=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Filename",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_filename",
+      "extractor_config": {
+        "regex_value": "filename=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "File Size",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_file_size",
+      "extractor_config": {
+        "regex_value": "file_size=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "File Path",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_file_path",
+      "extractor_config": {
+        "regex_value": "file_path=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "FTP Command",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ftp_command",
+      "extractor_config": {
+        "regex_value": "ftpcommand=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Source Country Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_country_code",
+      "extractor_config": {
+        "regex_value": "src_country_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Destination Country Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_country_code",
+      "extractor_config": {
+        "regex_value": "dst_country_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Destination Domain",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dstdomain",
+      "extractor_config": {
+        "regex_value": "dstdomain=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Device Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_device_name",
+      "extractor_config": {
+        "regex_value": "device_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Connection Direction",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_con_direction",
+      "extractor_config": {
+        "regex_value": "con_direction=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "File Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_file_name",
+      "extractor_config": {
+        "regex_value": "file_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Device Model",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_device_model",
+      "extractor_config": {
+        "regex_value": "device_model=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Device Serial ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_device_serial_id",
+      "extractor_config": {
+        "regex_value": "device_serial_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Log Version",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_log_version",
+      "extractor_config": {
+        "regex_value": "log_version=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Source Zone Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_zone_type",
+      "extractor_config": {
+        "regex_value": "src_zone_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Destination Zone Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_zone_type",
+      "extractor_config": {
+        "regex_value": "dst_zone_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Timestamp",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
@@ -1804,44 +866,1444 @@
         "regex_value": "timestamp=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG contenttype",
+      "title": "Log Component",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_contenttype",
+      "target_field": "fw_log_component",
       "extractor_config": {
-        "regex_value": "contenttype=\"([^\"]*)\""
+        "regex_value": "log_component=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "App Filter Policy ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_app_filter_policy_id",
+      "extractor_config": {
+        "regex_value": "app_filter_policy_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Category",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_category",
+      "extractor_config": {
+        "regex_value": "category=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "App Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_app_name",
+      "extractor_config": {
+        "regex_value": "app_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "App Risk",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_app_risk",
+      "extractor_config": {
+        "regex_value": "app_risk=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "App Technology",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_app_technology",
+      "extractor_config": {
+        "regex_value": "app_technology=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Firewall App Category",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_app_category",
+      "extractor_config": {
+        "regex_value": "app_category=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Rule Name",
+      "title": "Firewall Bytes Received",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_rule_name",
+      "target_field": "fw_bytes_received",
       "extractor_config": {
-        "regex_value": "fw_rule_name=\"([^\"]*)\""
+        "regex_value": "bytes_received=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall In Interface IP",
+      "title": "Firewall App is Cloud",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_local_interfaceip",
+      "target_field": "fw_app_is_cloud",
+      "extractor_config": {
+        "regex_value": "app_is_cloud=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Parent App",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_parent_app",
+      "extractor_config": {
+        "regex_value": "parent_app=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Parent App Category",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_parent_app_category",
+      "extractor_config": {
+        "regex_value": "parent_app_category=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Parent App Risk",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_parent_app_risk",
+      "extractor_config": {
+        "regex_value": "parent_app_risk=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Classification",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_classification",
+      "extractor_config": {
+        "regex_value": "classification=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall App Resolved By",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_app_resolved_by",
+      "extractor_config": {
+        "regex_value": "app_resolved_by=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Qualifier",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_qualifier",
+      "extractor_config": {
+        "regex_value": "qualifier=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Status",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_status",
+      "extractor_config": {
+        "regex_value": "status=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall User GP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_user_gp",
+      "extractor_config": {
+        "regex_value": "user_gp=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Application Filter Policy",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_application_filter_policy",
+      "extractor_config": {
+        "regex_value": "application_filter_policy=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Application Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_application_name",
+      "extractor_config": {
+        "regex_value": "application_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Application Risk",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_application_risk",
+      "extractor_config": {
+        "regex_value": "application_risk=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Application Technology",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_application_technology",
+      "extractor_config": {
+        "regex_value": "application_technology=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Application Category",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_application_category",
+      "extractor_config": {
+        "regex_value": "application_category=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source Country Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_country_code",
+      "extractor_config": {
+        "regex_value": "src_country_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination Country Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_country_code",
+      "extractor_config": {
+        "regex_value": "dst_country_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall App Resolved By",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_app_resolved_by",
+      "extractor_config": {
+        "regex_value": "app_resolved_by=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source Zone Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_zone_type",
+      "extractor_config": {
+        "regex_value": "src_zone_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination Zone Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_zone_type",
+      "extractor_config": {
+        "regex_value": "dst_zone_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Event ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_event_id",
+      "extractor_config": {
+        "regex_value": "event_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Event Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_event_type",
+      "extractor_config": {
+        "regex_value": "event_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Reported User",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_reported_user",
+      "extractor_config": {
+        "regex_value": "reported_user=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Process User",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_proc_user",
+      "extractor_config": {
+        "regex_value": "proc_user=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Reported ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_reported_id",
+      "extractor_config": {
+        "regex_value": "reported_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Threatfeed",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_threatfeed",
+      "extractor_config": {
+        "regex_value": "Threatfeed=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sourceip",
+      "extractor_config": {
+        "regex_value": "sourceip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_destinationip",
+      "extractor_config": {
+        "regex_value": "destinationip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Threat Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_threatname",
+      "extractor_config": {
+        "regex_value": "threatname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Event ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_eventid",
+      "extractor_config": {
+        "regex_value": "eventid=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Event Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_eventtype",
+      "extractor_config": {
+        "regex_value": "eventtype=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Login User",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_login_user",
+      "extractor_config": {
+        "regex_value": "login_user=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Process User",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_process_user",
+      "extractor_config": {
+        "regex_value": "process_user=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Endpoint UUID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ep_uuid",
+      "extractor_config": {
+        "regex_value": "ep_uuid=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Execution Path",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_execution_path",
+      "extractor_config": {
+        "regex_value": "execution_path=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Client Used",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_client_used",
+      "extractor_config": {
+        "regex_value": "client_used=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Authentication Mechanism",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_auth_mechanism",
+      "extractor_config": {
+        "regex_value": "auth_mechanism=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Reason",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_reason",
+      "extractor_config": {
+        "regex_value": "reason=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source MAC",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_mac",
+      "extractor_config": {
+        "regex_value": "src_mac=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Start",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_start",
+      "extractor_config": {
+        "regex_value": "start=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall End",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_end",
+      "extractor_config": {
+        "regex_value": "end=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall User Full Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_user_full_name",
+      "extractor_config": {
+        "regex_value": "user_full_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall User Group Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_usergroupname",
+      "extractor_config": {
+        "regex_value": "usergroupname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Authentication Client",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_auth_client",
+      "extractor_config": {
+        "regex_value": "auth_client=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Start Time",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_start_time",
+      "extractor_config": {
+        "regex_value": "start_time=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_name",
+      "extractor_config": {
+        "regex_value": "name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Log Component",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_log_component",
+      "extractor_config": {
+        "regex_value": "log_component=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "User Group Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_usergroupname",
+      "extractor_config": {
+        "regex_value": "usergroupname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Authentication Mechanism",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_auth_mechanism",
+      "extractor_config": {
+        "regex_value": "auth_mechanism=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Source Host",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_host",
+      "extractor_config": {
+        "regex_value": "src_host=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Reported IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_reported_ip",
+      "extractor_config": {
+        "regex_value": "reported_ip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Log Subtype",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_log_subtype",
+      "extractor_config": {
+        "regex_value": "log_subtype=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Host",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_host",
+      "extractor_config": {
+        "regex_value": "host=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Updated IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_updatedip",
+      "extractor_config": {
+        "regex_value": "updatedip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Reported Host",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_reported_host",
+      "extractor_config": {
+        "regex_value": "reported_host=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Lease Time",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_lease_time",
+      "extractor_config": {
+        "regex_value": "lease_time=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "IP Address",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ipaddress",
+      "extractor_config": {
+        "regex_value": "ipaddress=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Client Physical Address",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_client_physical_address",
+      "extractor_config": {
+        "regex_value": "client_physical_address=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Client Host Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_client_host_name",
+      "extractor_config": {
+        "regex_value": "client_host_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Raw Data",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_raw_data",
+      "extractor_config": {
+        "regex_value": "raw_data=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Policy Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_policy_name",
+      "extractor_config": {
+        "regex_value": "policy_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Sender",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sender",
+      "extractor_config": {
+        "regex_value": "sender=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Recipient",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_recipient",
+      "extractor_config": {
+        "regex_value": "recipient=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Subject",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_subject",
+      "extractor_config": {
+        "regex_value": "subject=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Message ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_message_id",
+      "extractor_config": {
+        "regex_value": "message_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Email Size",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_email_size",
+      "extractor_config": {
+        "regex_value": "email_size=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Action",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_action",
+      "extractor_config": {
+        "regex_value": "action=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Destination Host",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_host",
+      "extractor_config": {
+        "regex_value": "dst_host=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall AV Policy Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_av_policy_name",
+      "extractor_config": {
+        "regex_value": "av_policy_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall From Email Address",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_from_email_address",
+      "extractor_config": {
+        "regex_value": "from_email_address=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall To Email Address",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_to_email_address",
+      "extractor_config": {
+        "regex_value": "to_email_address=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Email Subject",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_email_subject",
+      "extractor_config": {
+        "regex_value": "email_subject=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Mail ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_mailid",
+      "extractor_config": {
+        "regex_value": "mailid=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Mail Size",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_mailsize",
+      "extractor_config": {
+        "regex_value": "mailsize=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Spam Action",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_spamaction",
+      "extractor_config": {
+        "regex_value": "spamaction=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source Domain Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_domainname",
+      "extractor_config": {
+        "regex_value": "src_domainname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination Domain Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_domainname",
+      "extractor_config": {
+        "regex_value": "dst_domainname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source Country Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_country_code",
+      "extractor_config": {
+        "regex_value": "src_country_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination Country Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_country_code",
+      "extractor_config": {
+        "regex_value": "dst_country_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Quarantine Reason",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_quarantine_reason",
+      "extractor_config": {
+        "regex_value": "quarantine_reason=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall From Email Address 2",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_from_email_address_2",
+      "extractor_config": {
+        "regex_value": "from_email_address=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall To Email Address 2",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_to_email_address_2",
+      "extractor_config": {
+        "regex_value": "to_email_address=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Quarantine 2",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_quarantine_2",
+      "extractor_config": {
+        "regex_value": "quarantine=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source Domain Name 2",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_domainname_2",
+      "extractor_config": {
+        "regex_value": "src_domainname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination Domain Name 2",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_domainname_2",
+      "extractor_config": {
+        "regex_value": "dst_domainname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Quarantine Reason 2",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_quarantine_reason_2",
+      "extractor_config": {
+        "regex_value": "quarantine_reason=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall From 2",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_from_2",
+      "extractor_config": {
+        "regex_value": "from=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall To 2",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_to_2",
+      "extractor_config": {
+        "regex_value": "to=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Duration",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_duration",
+      "extractor_config": {
+        "regex_value": "duration=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Policy Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_policy_type",
+      "extractor_config": {
+        "regex_value": "policy_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall IPS Policy ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ips_policy_id",
+      "extractor_config": {
+        "regex_value": "ips_policy_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall AppFilter Policy ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_appfilter_policy_id",
+      "extractor_config": {
+        "regex_value": "application=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Application",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_application",
+      "extractor_config": {
+        "regex_value": "application=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Application Technology",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_application_technology",
+      "extractor_config": {
+        "regex_value": "application_technology=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Application Category",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_application_category",
+      "extractor_config": {
+        "regex_value": "application_category=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall In Interface",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_in_interface",
       "extractor_config": {
         "regex_value": "in_interface=\"([^\"]*)\""
       },
@@ -1849,15 +2311,1121 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Protocol",
+      "title": "Firewall Out Interface",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_protocol",
+      "target_field": "fw_out_interface",
       "extractor_config": {
-        "regex_value": "protocol=\"([^\"]*)\""
+        "regex_value": "out_interface=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination MAC",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_mac",
+      "extractor_config": {
+        "regex_value": "dst_mac=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall VLAN ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_vlan_id",
+      "extractor_config": {
+        "regex_value": "vlan_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall ICMP Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_icmp_type",
+      "extractor_config": {
+        "regex_value": "icmp_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall ICMP Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_icmp_code",
+      "extractor_config": {
+        "regex_value": "icmp_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Sent Packets",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sent_pkts",
+      "extractor_config": {
+        "regex_value": "sent_pkts=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Received Packets",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_recv_pkts",
+      "extractor_config": {
+        "regex_value": "recv_pkts=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Translated Source IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_tran_src_ip",
+      "extractor_config": {
+        "regex_value": "tran_src_ip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Translated Source Port",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_tran_src_port",
+      "extractor_config": {
+        "regex_value": "tran_src_port=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Translated Destination IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_tran_dst_ip",
+      "extractor_config": {
+        "regex_value": "tran_dst_ip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Translated Destination Port",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_tran_dst_port",
+      "extractor_config": {
+        "regex_value": "tran_dst_port=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source Zone Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_srczonetype",
+      "extractor_config": {
+        "regex_value": "srczonetype=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source Zone",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_srczone",
+      "extractor_config": {
+        "regex_value": "srczone=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination Zone Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dstzonetype",
+      "extractor_config": {
+        "regex_value": "dstzonetype=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination Zone",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dstzone",
+      "extractor_config": {
+        "regex_value": "dstzone=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Direction Display",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dir_disp",
+      "extractor_config": {
+        "regex_value": "dir_disp=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Connection Event",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_connevent",
+      "extractor_config": {
+        "regex_value": "connevent=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Connection ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_connid",
+      "extractor_config": {
+        "regex_value": "connid=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Virtual Connection ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_vconnid",
+      "extractor_config": {
+        "regex_value": "vconnid=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Heartbeat Health",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_hb_health",
+      "extractor_config": {
+        "regex_value": "hb_health=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Ethernet Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ether_type",
+      "extractor_config": {
+        "regex_value": "ether_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall SD-WAN Profile ID Request",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sdwan_profile_id_request",
+      "extractor_config": {
+        "regex_value": "sdwan_profile_id_request=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "SD-WAN Profile Name Request",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sdwan_profile_name_request",
+      "extractor_config": {
+        "regex_value": "sdwan_profile_name_request"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "SD-WAN Profile ID Reply",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sdwan_profile_id_reply",
+      "extractor_config": {
+        "regex_value": "sdwan_profile_id_reply"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "SD-WAN Profile Name Reply",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sdwan_profile_name_reply",
+      "extractor_config": {
+        "regex_value": "sdwan_profile_name_reply"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Gateway ID Request",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_gw_id_request",
+      "extractor_config": {
+        "regex_value": "gw_id_request"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Gateway Name Request",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_gw_name_request",
+      "extractor_config": {
+        "regex_value": "gw_name_request"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Gateway ID Reply",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_gw_id_reply",
+      "extractor_config": {
+        "regex_value": "gw_id_reply"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Gateway Name Reply",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_gw_name_reply",
+      "extractor_config": {
+        "regex_value": "gw_name_reply"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "SD-WAN Route ID Request",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sdwan_route_id_request",
+      "extractor_config": {
+        "regex_value": "sdwan_route_id_request"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "SD-WAN Route Name Request",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sdwan_route_name_request",
+      "extractor_config": {
+        "regex_value": "sdwan_route_name_request"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "SD-WAN Route ID Reply",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sdwan_route_id_reply",
+      "extractor_config": {
+        "regex_value": "sdwan_route_id_reply"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "SD-WAN Route Name Reply",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sdwan_route_name_reply",
+      "extractor_config": {
+        "regex_value": "sdwan_route_name_reply"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Gateway Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_gatewayname",
+      "extractor_config": {
+        "regex_value": "gatewayname"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Date",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_date",
+      "extractor_config": {
+        "regex_value": "date"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Time",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_time",
+      "extractor_config": {
+        "regex_value": "time"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Timezone",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_timezone",
+      "extractor_config": {
+        "regex_value": "timezone"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Endpoint Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ep_name",
+      "extractor_config": {
+        "regex_value": "ep_name"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Endpoint IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ep_ip",
+      "extractor_config": {
+        "regex_value": "ep_ip"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Endpoint Health",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ep_health",
+      "extractor_config": {
+        "regex_value": "ep_health"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Endpoint Event Time",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ep_event_time",
+      "extractor_config": {
+        "regex_value": "ep_event_time"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Interface",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_interface",
+      "extractor_config": {
+        "regex_value": "interface"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "IDP Policy ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_idp_policy_id",
+      "extractor_config": {
+        "regex_value": "idp_policy_id"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Signature ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_signature_id",
+      "extractor_config": {
+        "regex_value": "signature_id"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Signature Message",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_signature_msg",
+      "extractor_config": {
+        "regex_value": "signature_msg"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Rule Priority",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_rule_priority",
+      "extractor_config": {
+        "regex_value": "rule_priority"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Source Country Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_src_country_code",
+      "extractor_config": {
+        "regex_value": "src_country_code"
+      },
+      "condition_type": "string",
+      "condition_value": ""
+    },
+    {
+      "title": "Firewall Destination Country Code",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dst_country_code",
+      "extractor_config": {
+        "regex_value": "dst_country_code=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Platform",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_platform",
+      "extractor_config": {
+        "regex_value": "platform=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Target",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_target",
+      "extractor_config": {
+        "regex_value": "target=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Connection Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_connection_name",
+      "extractor_config": {
+        "regex_value": "connectionname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Connection Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_connection_type",
+      "extractor_config": {
+        "regex_value": "connectiontype=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Local Interface IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_local_interface_ip",
+      "extractor_config": {
+        "regex_value": "localinterfaceip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Local Gateway",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_local_gateway",
+      "extractor_config": {
+        "regex_value": "localgateway=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Local Network",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_local_network",
+      "extractor_config": {
+        "regex_value": "localnetwork=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Remote Interface IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_remote_interface_ip",
+      "extractor_config": {
+        "regex_value": "remoteinterfaceip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Remote Network",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_remote_network",
+      "extractor_config": {
+        "regex_value": "remotenetwork=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Local IP",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_local_ip",
+      "extractor_config": {
+        "regex_value": "localip=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Remote Peer",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_remote_peer",
+      "extractor_config": {
+        "regex_value": "remotepeer=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall IP Leased",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_ip_leased",
+      "extractor_config": {
+        "regex_value": "ipleased=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Bytes Received",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_bytes_recv",
+      "extractor_config": {
+        "regex_value": "bytes_recv=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Red ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_red_id",
+      "extractor_config": {
+        "regex_value": "red_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Event Time",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_event_time",
+      "extractor_config": {
+        "regex_value": "eventtime=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Branch Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_branch_name",
+      "extractor_config": {
+        "regex_value": "branch_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall File Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_file_type",
+      "extractor_config": {
+        "regex_value": "filetype=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall File Size",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_file_size",
+      "extractor_config": {
+        "regex_value": "filesize=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall File Hash",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_file_hash",
+      "extractor_config": {
+        "regex_value": "file_hash=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Source",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_source",
+      "extractor_config": {
+        "regex_value": "source=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Destination",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_destination",
+      "extractor_config": {
+        "regex_value": "destination=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Device Serial",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_device_serial",
+      "extractor_config": {
+        "regex_value": "device_serial=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall SHA1 Sum",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sha1sum",
+      "extractor_config": {
+        "regex_value": "sha1sum=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Profile ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_profile_id",
+      "extractor_config": {
+        "regex_value": "profile_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Profile Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_profile_name",
+      "extractor_config": {
+        "regex_value": "profile_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Gateway ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_gw_id",
+      "extractor_config": {
+        "regex_value": "gw_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Gateway Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_gw_name",
+      "extractor_config": {
+        "regex_value": "gw_name=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Probe Target",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_probe_target",
+      "extractor_config": {
+        "regex_value": "probe_target=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Mode",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_Mode",
+      "extractor_config": {
+        "regex_value": "Mode=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Session ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sessionid",
+      "extractor_config": {
+        "regex_value": "sessionid=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Resource Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_resource_type",
+      "extractor_config": {
+        "regex_value": "resource_type=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Resource",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_resource",
+      "extractor_config": {
+        "regex_value": "resource=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
@@ -1883,7 +3451,7 @@
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_username",
+      "target_field": "fw_user_name",
       "extractor_config": {
         "regex_value": "user_name=\"([^\"]*)\""
       },
@@ -1891,161 +3459,21 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Sophos XG responsetime",
+      "title": "Firewall Server",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_responsetime",
+      "target_field": "fw_server",
       "extractor_config": {
-        "regex_value": "responsetime=([^\\s]*)"
+        "regex_value": "server=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Domain",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_domain",
-      "extractor_config": {
-        "regex_value": "domain=\\\"([^\\\"]*)\\\""
-      },
-      "condition_type": "regex",
-      "condition_value": "domain="
-    },
-    {
-      "title": "HTTP Category",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_http_category",
-      "extractor_config": {
-        "regex_value": "http_category=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source County Code",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_country_code",
-      "extractor_config": {
-        "regex_value": "src_country_code=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_port",
-      "extractor_config": {
-        "regex_value": "dst_port=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Country",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_country",
-      "extractor_config": {
-        "regex_value": "dst_country=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_port",
-      "extractor_config": {
-        "regex_value": "dst_port=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source IP",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_ip",
-      "extractor_config": {
-        "regex_value": "src_ip=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Application Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_app_name",
-      "extractor_config": {
-        "regex_value": "app_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source Zone Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_zone_type",
-      "extractor_config": {
-        "regex_value": "src_zone_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Ether Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_ether_type",
-      "extractor_config": {
-        "regex_value": "ether_type=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG ws protocol",
+      "title": "Firewall WS Protocol",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
@@ -2059,7 +3487,385 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "HTTP Category Type",
+      "title": "Firewall Query String",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_queryString",
+      "extractor_config": {
+        "regex_value": "queryString=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Cookie",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_cookie",
+      "extractor_config": {
+        "regex_value": "cookie=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Referer",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_referer",
+      "extractor_config": {
+        "regex_value": "referer=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Method",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_method",
+      "extractor_config": {
+        "regex_value": "method=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall HTTP Status",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_httpstatus",
+      "extractor_config": {
+        "regex_value": "httpstatus=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Extra",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_extra",
+      "extractor_config": {
+        "regex_value": "extra=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Content Type",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_contenttype",
+      "extractor_config": {
+        "regex_value": "contenttype=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall User Agent",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_useragent",
+      "extractor_config": {
+        "regex_value": "useragent=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Response Time",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_responsetime",
+      "extractor_config": {
+        "regex_value": "responsetime=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Bytes Sent",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_bytessent",
+      "extractor_config": {
+        "regex_value": "bytessent=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Bytes Received",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_bytesrcv",
+      "extractor_config": {
+        "regex_value": "bytesrcv=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Transaction",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_transaction",
+      "extractor_config": {
+        "regex_value": "transaction=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Content Filter Key",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_content_filter_key",
+      "extractor_config": {
+        "regex_value": "content_filter_key=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall HTTP Category",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_http_category",
+      "extractor_config": {
+        "regex_value": "http_category=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Connection Direction",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_con_direction",
+      "extractor_config": {
+        "regex_value": "con_direction=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Context Match",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_context_match",
+      "extractor_config": {
+        "regex_value": "context_match=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Context Prefix",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_context_prefix",
+      "extractor_config": {
+        "regex_value": "context_prefix=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Context Suffix",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_context_suffix",
+      "extractor_config": {
+        "regex_value": "context_suffix=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Transaction ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_transactionid",
+      "extractor_config": {
+        "regex_value": "transactionid=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Dictionary Name",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_dictionaryname",
+      "extractor_config": {
+        "regex_value": "dictionaryname=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Site Category",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_sitecategory",
+      "extractor_config": {
+        "regex_value": "sitecategory=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Website",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_website",
+      "extractor_config": {
+        "regex_value": "website=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Direction",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_direction",
+      "extractor_config": {
+        "regex_value": "direction=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Context Match",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_contextmatch",
+      "extractor_config": {
+        "regex_value": "contextmatch=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Context Prefix",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_contextprefix",
+      "extractor_config": {
+        "regex_value": "contextprefix=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Context Suffix",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_contextsuffix",
+      "extractor_config": {
+        "regex_value": "contextsuffix=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall Web Policy ID",
+      "extractor_type": "regex",
+      "converters": [],
+      "order": 0,
+      "cursor_strategy": "copy",
+      "source_field": "message",
+      "target_field": "fw_web_policy_id",
+      "extractor_config": {
+        "regex_value": "web_policy_id=\"([^\"]*)\""
+      },
+      "condition_type": "string",
+      "condition_value": "device_name=\"SFW\""
+    },
+    {
+      "title": "Firewall HTTP Category Type",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
@@ -2073,705 +3879,355 @@
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Destination County Code",
+      "title": "Firewall Content Type",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_dst_country_code",
+      "target_field": "fw_content_type",
       "extractor_config": {
-        "regex_value": "dst_country_code=([^\\s]*)"
+        "regex_value": "content_type=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Timezone",
+      "title": "Firewall Override Token",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_timezone",
+      "target_field": "fw_override_token",
       "extractor_config": {
-        "regex_value": "timezone=\"([^\"]*)\""
+        "regex_value": "override_token=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall In Display Interface",
+      "title": "Firewall Override Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_in_display_interface",
+      "target_field": "fw_override_name",
       "extractor_config": {
-        "regex_value": "in_display_interface=\"([^\"]*)\""
+        "regex_value": "override_name=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Log Subtype",
+      "title": "Firewall Override Authorizer",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_log_subtype",
+      "target_field": "fw_override_authorizer",
       "extractor_config": {
-        "regex_value": "log_subtype=\"([^\"]*)\""
+        "regex_value": "override_authorizer=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Packets Received",
+      "title": "Firewall Activity Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_packets_received",
+      "target_field": "fw_activity_name",
       "extractor_config": {
-        "regex_value": "packets_received=([^\\s]*)"
+        "regex_value": "activity_name=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Out Display Interface",
+      "title": "Firewall HTTP User Agent",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_out_display_interface",
+      "target_field": "fw_http_user_agent",
       "extractor_config": {
-        "regex_value": "out_display_interface=\"([^\"]*)\""
+        "regex_value": "http_user_agent=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Web Policy ID",
+      "title": "Firewall Transaction ID",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_web_policy_id",
+      "target_field": "fw_transaction_id",
       "extractor_config": {
-        "regex_value": "web_policy_id=([^\\s]*)"
+        "regex_value": "transaction_id=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Destination IP",
+      "title": "Firewall HTTP Referer",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_dst_ip",
+      "target_field": "fw_http_referer",
       "extractor_config": {
-        "regex_value": "dst_ip=\"([^\"]*)\""
+        "regex_value": "http_referer=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Log Type",
+      "title": "Firewall Download File Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_log_type",
+      "target_field": "fw_download_file_name",
       "extractor_config": {
-        "regex_value": "log_type=\"([^\"]*)\""
+        "regex_value": "download_file_name=\"([^\"]*)\""
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
     },
     {
-      "title": "Firewall Destination Zone Type",
+      "title": "Download File Type",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_dst_zone_type",
+      "target_field": "fw_download_file_type",
       "extractor_config": {
-        "regex_value": "dst_zone_type=\"([^\"]*)\""
+        "regex_value": "download_file_type=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG Local IP",
+      "title": "Upload File Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_localip",
+      "target_field": "fw_upload_file_name",
       "extractor_config": {
-        "regex_value": "localip=([^\\s]*)"
+        "regex_value": "upload_file_name=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Firewall Status",
+      "title": "Upload File Type",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_status",
+      "target_field": "fw_upload_file_type",
       "extractor_config": {
-        "regex_value": "status=\"([^\"]*)\""
+        "regex_value": "upload_file_type=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Firewall Bytes Received",
+      "title": "Connection ID",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_bytes_received",
+      "target_field": "fw_con_id",
       "extractor_config": {
-        "regex_value": "bytes_received=([^\\s]*)"
+        "regex_value": "con_id=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG Application Category",
+      "title": "Used Quota",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_application_category",
+      "target_field": "fw_used_quota",
       "extractor_config": {
-        "regex_value": "application_category=\"([^\\s]*)\""
+        "regex_value": "used_quota=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG Dest Zone",
+      "title": "Category Type",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_dstzone",
+      "target_field": "fw_category_type",
       "extractor_config": {
-        "regex_value": "dstzone=\"([^\\s]*)\""
+        "regex_value": "category_type=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG url",
+      "title": "Content Type",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_url",
+      "target_field": "fw_contenttype",
       "extractor_config": {
-        "regex_value": "url=\\\"([^\\\"]*)\\\""
+        "regex_value": "contenttype=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG VLAN ID",
+      "title": "Override Authorizer",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_vlan_id",
+      "target_field": "fw_override_authorizer",
       "extractor_config": {
-        "regex_value": "vlan_id=([^\\s]*)"
+        "regex_value": "override_authorizer=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Firewall Bytes Sent",
+      "title": "Exceptions",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_bytes_sent",
+      "target_field": "fw_exceptions",
       "extractor_config": {
-        "regex_value": "bytes_sent=([^\\s]*)"
+        "regex_value": "exceptions=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG Heartbeat Health",
+      "title": "Activity Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_hb_health",
+      "target_field": "fw_activityname",
       "extractor_config": {
-        "regex_value": "hb_health=\"([^\\s]*)\""
+        "regex_value": "activityname=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG OUT Interface",
+      "title": "Download File Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_remote_interfaceip",
+      "target_field": "fw_download_file_name",
       "extractor_config": {
-        "regex_value": "out_interface=\"([^\"]*)\""
+        "regex_value": "download_file_name=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Web Policy ID",
+      "title": "Download File Type",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_web_policy_id",
+      "target_field": "fw_download_file_type",
       "extractor_config": {
-        "regex_value": "web_policy_id=([^\\s]*)"
+        "regex_value": "download_file_type=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG Connection ID",
+      "title": "Upload File Name",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_connid",
+      "target_field": "fw_upload_file_name",
       "extractor_config": {
-        "regex_value": "connid=\"([^\\s]*)\""
+        "regex_value": "upload_file_name=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG NAT Translated Source IP",
+      "title": "AP",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_tran_src_ip",
+      "target_field": "fw_ap",
       "extractor_config": {
-        "regex_value": "tran_src_ip=([^\\s]*)"
+        "regex_value": "ap=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG Received Bytes",
+      "title": "SSID",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_recv_bytes",
+      "target_field": "fw_ssid",
       "extractor_config": {
-        "regex_value": "sent_bytes=([^\\s]*)"
+        "regex_value": "ssid=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     },
     {
-      "title": "Sophos XG Application Risk",
+      "title": "Clients Connection SSID",
       "extractor_type": "regex",
       "converters": [],
       "order": 0,
       "cursor_strategy": "copy",
       "source_field": "message",
-      "target_field": "fw_application_risk",
+      "target_field": "fw_clients_conn_SSID",
       "extractor_config": {
-        "regex_value": "application_risk=([^\\s]*)"
+        "regex_value": "clients_conn_SSID=\"([^\"]*)\""
       },
       "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Rule ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_rule_id",
-      "extractor_config": {
-        "regex_value": "fw_rule_id=\"([^\"\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Device",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_device",
-      "extractor_config": {
-        "regex_value": "device=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG NAT Translated Dest Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_tran_dst_port",
-      "extractor_config": {
-        "regex_value": "tran_dst_port=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Bridge Interface",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_bridge_name",
-      "extractor_config": {
-        "regex_value": "bridge_name=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Application Name",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_application",
-      "extractor_config": {
-        "regex_value": "application=\"([^\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG NAT Translated Source Port",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_tran_src_port",
-      "extractor_config": {
-        "regex_value": "tran_src_port=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination MAC",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "full_message",
-      "target_field": "fw_dst_mac",
-      "extractor_config": {
-        "regex_value": "dst_mac=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Sent Packets",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_sent_pkts",
-      "extractor_config": {
-        "regex_value": "sent_pkts=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Destination Translated IP",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dst_trans_ip",
-      "extractor_config": {
-        "regex_value": "dst_trans_ip=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Dest Zone Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_dstzonetype",
-      "extractor_config": {
-        "regex_value": "dstzonetype=\"([^\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG User Group",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_user_gp",
-      "extractor_config": {
-        "regex_value": "user_gp=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Firewall Source MAC",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_src_mac",
-      "extractor_config": {
-        "regex_value": "src_mac=\"([^\"]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Application Policy ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_appfilter_policy_id",
-      "extractor_config": {
-        "regex_value": "appfilter_policy_id=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Application Technology",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_application_technology",
-      "extractor_config": {
-        "regex_value": "application_technology=\"([^\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG NAT Translated Dest IP",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_tran_dst_ip",
-      "extractor_config": {
-        "regex_value": "tran_dst_ip=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Source Zone Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_srczone",
-      "extractor_config": {
-        "regex_value": "srczone=\"([^\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Source Zone Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_srczonetype",
-      "extractor_config": {
-        "regex_value": "srczonetype=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Received Packets",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_recv_pkts",
-      "extractor_config": {
-        "regex_value": "recv_pkts=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Source Zone Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_srczonetype",
-      "extractor_config": {
-        "regex_value": "srczonetype=\"([^\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Connection Event",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_connevent",
-      "extractor_config": {
-        "regex_value": "connevent=\"([^\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Policy Type",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_policy_type",
-      "extractor_config": {
-        "regex_value": "policy_type=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Application Resolved by",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_appresolvedby",
-      "extractor_config": {
-        "regex_value": "appresolvedby=\"([^\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Sent Bytes",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_sent_bytes",
-      "extractor_config": {
-        "regex_value": "sent_bytes=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG IPS Policy ID",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_ips_policy_id",
-      "extractor_config": {
-        "regex_value": "ips_policy_id=([^\\s]*)"
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
-    },
-    {
-      "title": "Sophos XG Application is Cloud",
-      "extractor_type": "regex",
-      "converters": [],
-      "order": 0,
-      "cursor_strategy": "copy",
-      "source_field": "message",
-      "target_field": "fw_app_is_cloud",
-      "extractor_config": {
-        "regex_value": "app_is_cloud=\"([^\"\\s]*)\""
-      },
-      "condition_type": "string",
-      "condition_value": "device_name=\"SFW\""
+      "condition_value": ""
     }
   ],
-  "version": "5.2.3"
+  "version": "5.2.2"
 }
