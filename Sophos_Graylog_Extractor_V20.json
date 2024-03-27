@@ -233,7 +233,7 @@
       "source_field": "message",
       "target_field": "fw_src_port",
       "extractor_config": {
-        "regex_value": "src_port=\"([^\"]*)\""
+        "regex_value": "src_port=((6553[0-5])|(655[0-2][0-9])|(65[0-4][0-9]{2})|(6[0-4][0-9]{3})|([1-5][0-9]{4})|([0-5]{0,5})|([0-9]{1,4}))" 
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
@@ -247,7 +247,7 @@
       "source_field": "message",
       "target_field": "fw_dst_port",
       "extractor_config": {
-        "regex_value": "dst_port=\"([^\"]*)\""
+        "regex_value": "dst_port=((6553[0-5])|(655[0-2][0-9])|(65[0-4][0-9]{2})|(6[0-4][0-9]{3})|([1-5][0-9]{4})|([0-5]{0,5})|([0-9]{1,4}))"
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
@@ -2431,7 +2431,7 @@
       "source_field": "message",
       "target_field": "fw_tran_src_port",
       "extractor_config": {
-        "regex_value": "tran_src_port=\"([^\"]*)\""
+        "regex_value": "tran_src_port=((6553[0-5])|(655[0-2][0-9])|(65[0-4][0-9]{2})|(6[0-4][0-9]{3})|([1-5][0-9]{4})|([0-5]{0,5})|([0-9]{1,4}))"
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
@@ -2459,7 +2459,7 @@
       "source_field": "message",
       "target_field": "fw_tran_dst_port",
       "extractor_config": {
-        "regex_value": "tran_dst_port=\"([^\"]*)\""
+        "regex_value": "tran_dst_port=((6553[0-5])|(655[0-2][0-9])|(65[0-4][0-9]{2})|(6[0-4][0-9]{3})|([1-5][0-9]{4})|([0-5]{0,5})|([0-9]{1,4}))"
       },
       "condition_type": "string",
       "condition_value": "device_name=\"SFW\""
